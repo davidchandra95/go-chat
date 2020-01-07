@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a7635e91-d24d-4b48-af1b-48f8fa137cca" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="ProjectId" id="1W0PLBtXEFESzrn8VJpauejUgXj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1920" y="84" width="800" height="684" key="#Go_Modules_(vgo)" timestamp="1578284413541">
+      <screen x="1920" y="0" width="1024" height="768" />
+    </state>
+    <state x="1920" y="84" width="800" height="684" key="#Go_Modules_(vgo)/53.27.1867.1053/1920.0.1024.768@1920.0.1024.768" timestamp="1578284413541" />
+    <state x="1920" y="84" width="800" height="684" key="#Notifications" timestamp="1578283878381">
+      <screen x="1920" y="0" width="1024" height="768" />
+    </state>
+    <state x="1920" y="84" width="800" height="684" key="#Notifications/53.27.1867.1053/1920.0.1024.768@1920.0.1024.768" timestamp="1578283878381" />
+    <state x="2543" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1578370949515">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2543" y="239" width="672" height="678" key="search.everywhere.popup/53.27.1867.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1578370949515" />
+  </component>
+</project>

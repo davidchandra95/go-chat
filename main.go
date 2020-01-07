@@ -28,9 +28,10 @@ type SocketPayload struct {
 
 // For broadcasting message to all connected users
 type SocketResponse struct {
-	From    string
-	Type    string
-	Message string
+	From        string
+	Type        string
+	Message     string
+	Connections []*WebSocketConnection
 }
 
 // Store client data
@@ -55,7 +56,7 @@ func main() {
 			Port string
 		}
 
-		content := &Index{Port:port}
+		content := &Index{Port: port}
 
 		t, err := template.ParseFiles("index.html")
 		if err != nil {
@@ -100,8 +101,8 @@ func handleIO(currentConn *WebSocketConnection, connections []*WebSocketConnecti
 		err := currentConn.ReadJSON(&payload)
 		if err != nil {
 			if strings.Contains(err.Error(), "websocket: close") {
-				broadcastMessage(currentConn, MESSAGE_LEAVE, "")
 				ejectConnection(currentConn)
+				broadcastMessage(currentConn, MESSAGE_LEAVE, "")
 
 				return
 			}
@@ -128,7 +129,7 @@ func ejectConnection(currentConn *WebSocketConnection) {
 
 func broadcastMessage(currentConn *WebSocketConnection, kind, message string) {
 	for _, eachConn := range connections {
-		if eachConn == currentConn {
+		if eachConn == currentConn && message != "" {
 			continue
 		}
 
@@ -136,6 +137,7 @@ func broadcastMessage(currentConn *WebSocketConnection, kind, message string) {
 			From:    currentConn.Username,
 			Type:    kind,
 			Message: message,
+			Connections: connections,
 		})
 	}
 }

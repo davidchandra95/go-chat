@@ -164,7 +164,9 @@
     </style>
 </head>
 <body>
+
 <section class="msger">
+    <div class="list-user"></div>
     <div hidden id="port">{{ .Port }}</div>
     <header class="msger-header">
         <div class="msger-header-title">
@@ -197,7 +199,6 @@
         document.getElementById('username').innerText = name;
 
         let HOST = location.origin.replace(/^http/, 'ws');
-
         app.container = document.querySelector('.msger-chat');
         app.ws = new WebSocket(HOST + "/ws?username=" + name);
 
@@ -207,6 +208,12 @@
 
         app.ws.onmessage = function (event) {
             let res = JSON.parse(event.data);
+            console.log(res);
+            let listUser = [];
+            res.Connections.forEach(function (conn) {
+                listUser.push(`<b>${conn.Username}</b>`);
+            });
+            document.querySelector('.list-user').innerHTML = "dudes online: " + listUser.join(', ');
 
             let message = '';
             if (res.Type === 'New User') {

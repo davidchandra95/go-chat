@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/websocket"
+	"os"
+
 	//"github.com/novalagung/gubrak"
 	"io/ioutil"
 	"log"
@@ -44,6 +46,11 @@ var upgrader = websocket.Upgrader{
 }
 
 func main() {
+	port := os.Getenv("PORT") //Get port from .env file, we did not specify any port so this should return an empty string when tested locally
+	if port == "" {
+		port = "8000" //localhost
+	}
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		content, err := ioutil.ReadFile("index.html")
 		if err != nil {
@@ -67,8 +74,11 @@ func main() {
 		go handleIO(&currentConn, connections)
 	})
 
-	fmt.Println("Server starting at http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println("Server starting at http://localhost:" + port)
+	err := http.ListenAndServe(":"+port, nil) //Launch the app, visit localhost:8000/api
+	if err != nil {
+		fmt.Print(err)
+	}
 }
 
 func handleIO(currentConn *WebSocketConnection, connections []*WebSocketConnection) {

@@ -3,10 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/websocket"
+	"html/template"
 	"os"
 
-	//"github.com/novalagung/gubrak"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"strings"
@@ -52,13 +51,19 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		content, err := ioutil.ReadFile("index.html")
+		type Index struct {
+			Port string
+		}
+
+		content := &Index{Port:port}
+
+		t, err := template.ParseFiles("index.html")
 		if err != nil {
 			http.Error(w, "Could not open requested file", http.StatusInternalServerError)
 			return
 		}
 
-		_, _ = fmt.Fprintf(w, "%s", content)
+		_ = t.Execute(w, content)
 	})
 
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {

@@ -165,6 +165,7 @@
 </head>
 <body>
 <section class="msger">
+    <div hidden id="port">{{ .Port }}</div>
     <header class="msger-header">
         <div class="msger-header-title">
             <i class="fas fa-comment-alt"></i>Hi <span id="username"></span>!
@@ -185,6 +186,8 @@
     app.ws = undefined;
     app.container = undefined;
 
+    let port = document.getElementById('port').innerText;
+    console.log(port)
     app.init = function () {
         if (!(window.WebSocket)) {
             alert('Your browser does not support WebSocket');
@@ -195,7 +198,7 @@
         document.getElementById('username').innerText = name;
 
         app.container = document.querySelector('.msger-chat');
-        app.ws = new WebSocket("ws://localhost:8080/ws?username=" + name);
+        app.ws = new WebSocket("ws://localhost:" + port + "/ws?username=" + name);
 
         app.ws.onopen = function () {
             document.querySelector('.msger-input').focus();

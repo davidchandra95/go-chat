@@ -187,7 +187,6 @@
     app.container = undefined;
 
     let port = document.getElementById('port').innerText;
-    console.log(port)
     app.init = function () {
         if (!(window.WebSocket)) {
             alert('Your browser does not support WebSocket');
@@ -197,8 +196,10 @@
         const name = prompt('Enter your name please: ') || "No name";
         document.getElementById('username').innerText = name;
 
+        let HOST = location.origin.replace(/^http/, 'ws');
+
         app.container = document.querySelector('.msger-chat');
-        app.ws = new WebSocket("ws://localhost:" + port + "/ws?username=" + name);
+        app.ws = new WebSocket(HOST + "/ws?username=" + name);
 
         app.ws.onopen = function () {
             document.querySelector('.msger-input').focus();
